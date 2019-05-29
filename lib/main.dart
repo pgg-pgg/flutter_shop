@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 import 'pages/index_page.dart';
+import 'package:provide/provide.dart';
+import 'provide/counter.dart';
+import 'provide/child_category.dart';
+import 'provide/category_goods_list.dart';
 
-void main()=>runApp(ShopApp());
+void main() {
+  var counter = Counter();
+  var childCategory = ChildCategory();
+  var providers = Providers();
+  var categoryGoodsListProvide= CategoryGoodsListProvide();
+  providers
+    ..provide(Provider<Counter>.value(counter))
+    ..provide(Provider<ChildCategory>.value(childCategory))
+    ..provide(Provider<CategoryGoodsListProvide>.value(categoryGoodsListProvide));
+  runApp(ProviderNode(child: ShopApp(), providers: providers));
+}
 
 class ShopApp extends StatelessWidget {
   @override
@@ -9,9 +23,7 @@ class ShopApp extends StatelessWidget {
     return Container(
       child: MaterialApp(
         title: "百姓生活+",
-        theme: ThemeData(
-          primarySwatch: Colors.pink
-        ),
+        theme: ThemeData(primarySwatch: Colors.pink),
         debugShowCheckedModeBanner: false,
         home: IndexPage(),
       ),
