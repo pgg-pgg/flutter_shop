@@ -35,6 +35,14 @@ dependencies:
   flutter_easyrefresh: ^1.2.7
   # 状态管理
   provide: ^1.0.2
+  # toast提示
+  fluttertoast: ^3.0.1
+  # 路由框架
+  fluro: "^1.4.0"
+  # html插件
+  flutter_html: ^0.9.6
+  # 持久化插件
+  shared_preferences: ^0.5.1
 
 
 dev_dependencies:
