@@ -8,6 +8,8 @@ import 'package:fluro/fluro.dart';
 import 'routers/routers.dart';
 import 'routers/application.dart';
 import 'provide/details_info.dart';
+import './provide/cart.dart';
+import 'provide/currentIndex.dart';
 
 void main() {
   var counter = Counter();
@@ -15,6 +17,8 @@ void main() {
   var providers = Providers();
   var categoryGoodsListProvide= CategoryGoodsListProvide();
   var detailsInfoProvide = DetailsInfoProvide();
+  var cartProvide = CartProvide();
+  var currentProvide = CurrentIndexProvide();
 
   //初始化路由
   final router = Router();
@@ -25,7 +29,9 @@ void main() {
     ..provide(Provider<Counter>.value(counter))
     ..provide(Provider<ChildCategory>.value(childCategory))
     ..provide(Provider<CategoryGoodsListProvide>.value(categoryGoodsListProvide))
-    ..provide(Provider<DetailsInfoProvide>.value(detailsInfoProvide));
+    ..provide(Provider<DetailsInfoProvide>.value(detailsInfoProvide))
+    ..provide(Provider<CartProvide>.value(cartProvide))
+    ..provide(Provider<CurrentIndexProvide>.value(currentProvide));
   runApp(ProviderNode(child: ShopApp(), providers: providers));
 }
 
